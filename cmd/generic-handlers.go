@@ -500,7 +500,7 @@ func (h httpStatsHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	//
 	// We don't need to do nanosecond precision in this
 	// simply for the fact that it is not human readable.
-	durationSecs := tAfter.Sub(tBefore).Seconds()
+	durationSecs := tAfter.Sub(tBefore).Nanoseconds()
 
 	// Update http statistics
 	globalHTTPStats.updateStats(r, ww, durationSecs)
